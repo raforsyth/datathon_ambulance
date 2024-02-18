@@ -1,6 +1,6 @@
 library(dplyr)
 
-full_df = read.csv("final_dataframe.csv")
+full_df = read.csv("final_raw_count.csv")
 pop = read.csv("Data/population_by_municipality.csv")
 
 #drop unused columns
@@ -14,18 +14,23 @@ names(final_df_with_pop)[names(final_df_with_pop) == 'TOTAL'] <- 'population'
 
 
 #group postal codes
-final_df <- final_df_with_pop[,-6] # Remove the municipality column
+final_df <- final_df_with_pop[,-8] # Remove the municipality column
+
 
 final_df <- final_df %>%
   group_by(postal_code) %>%
   summarise(
-    mean_intervention_time = mean(mean_intervention_time),
-    mean_cardiac_frac = mean(cardiac_frac),
-    mean_DOA_cardiac = mean(DOA_cardiac),
-    mean_DOA_all = mean(DOA_all),
-    average_population = mean(population)
+    avg_intervention_time = mean(V1),
+    cardiac_intervention_count = mean(cardiac_intervention_count),
+    DOA_cardiac_count = mean(DOA_cardiac_count),
+    DOA_all_count = mean(DOA_all_count), 
+    interventions_count = mean(interventions_count),
+    aed_count = mean(aed_count),
+    population = mean(population)
   )  
 
 
+
 #write to csv
-write.csv(final_df, file = "dataset_with_populations.csv")
+write.csv(final_df, file = "final_rawcounts_merged.csv")
+
