@@ -1,0 +1,14 @@
+Additional Data sources
+
+Datathon 2024, Leuven, Belgium
+
+Team: The Ordinators
+
+Population by statistical sector (municipality) csv:
+	https://statbel.fgov.be/en/open-data/population-		statistical-sector-11
+
+Postal codes to municipality associations:
+	https://public.opendatasoft.com/explore/dataset/georef-		belgium-postal-codes/export/
+
+Postal districts shape file for map visualisations:
+	https://www.geo.be/catalog/details/				9738c7c0-5255-11ea-8895-34e12d0f0423?l=en
